@@ -1,0 +1,7 @@
+DROP TABLE USERS;
+
+CREATE TABLE IF NOT EXISTS USERS (
+    id SMALLINT NOT NULL,
+    login char[50] NOT NULL,
+    password char[50] NOT NULL
+);
