@@ -1,10 +1,12 @@
 package org.pump.user.controller;
 
 import org.pump.meter.model.Meter;
+import org.pump.user.UserRole;
 import org.pump.user.model.User;
 import org.pump.user.repository.UserRepository;
 import org.pump.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -37,20 +39,17 @@ public class UserController {
 	@GetMapping("/user/{login}")
 	@ResponseBody
 	// Returns user that have the same login that you search
-	public boolean userExists(@PathVariable(value = "login") String login) {
-		return userRepository.existsUserByLogin(login);
+	public ResponseEntity getUserByLogin(@PathVariable(value = "login") String login) {
+		return ResponseEntity.ok(userRepository.findByLogin(login));
 	}
 	
 	@PostMapping("/user")
 	@ResponseBody
 	// Create a new user
-	public String createUser(String login, String password) {
-		if (userRepository.existsUserByLogin(login)) {
-			return "User " + login + " already exists";
-		} else {
-			User user = new User(login, password);
-			userService.save(user);
-			return "User created!";
-		}
+	public ResponseEntity createUser(String id, String login, String password) {
+		User user = new User(id, login, password, UserRole.USER);
+		userRepository.save(user);
+		
+		return ResponseEntity.ok().build();
 	}
 }

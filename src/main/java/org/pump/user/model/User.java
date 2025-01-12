@@ -3,48 +3,70 @@ package org.pump.user.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.pump.user.UserRole;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
 
 @Data
-@Entity
-@Table(name = "USERS")
+@Entity(name = "users")
+@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@EqualsAndHashCode(of = "id")
+public class User implements UserDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private String id;
 	
 	@Column(name = "login")
 	private String login;
 	
 	@Column(name = "password")
-	private String encryptedPassword;
+	private String password;
 	
-	public User(String login, String password) {
+	@Column(name = "role")
+	private UserRole role;
+
+	public User(String login, String password, UserRole role) {
 		this.login = login;
-		this.encryptedPassword = encryptPassword(password);
+		this.password = password;
+		this.role = role;
 	}
-	
-	public static String encryptPassword(String password) {
-		char[] chars = password.toCharArray();
-		char[] charsAfterEncrypt = new char[chars.length];
-		int i = 0;
-		for (char c: chars) {
-			charsAfterEncrypt[i] = (char) (255 - (int) c);
-			i++;
-		}
-		return new String(charsAfterEncrypt);
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		if (this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+		else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
 	}
-	
-	public static String encoderPassword(String encryptedPassword) {
-		char[] chars = encryptedPassword.toCharArray();
-		char[] charsAfterEncoding = new char[chars.length];
-		int i = 0;
-		for (char c: chars) {
-			charsAfterEncoding[i] = (char) (255 - (int) c);
-			i++;
-		}
-		return new String(charsAfterEncoding);
+
+	@Override
+	public String getUsername() {
+		return login;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
 	}
 }

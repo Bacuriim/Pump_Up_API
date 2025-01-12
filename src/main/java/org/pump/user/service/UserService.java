@@ -11,18 +11,17 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public User getUserByLoginAndPassword(String login, String password) {
-		String encryptedPassword = User.encryptPassword(password);
-		return userRepository.findUserByLoginAndEncryptedPassword(login, encryptedPassword);
+	public User getUserByLogin(String login) {
+		return (User) userRepository.findByLogin(login);
 	}
 
-	public User save(User user) {
-		return userRepository.save(user);
+	public void save(User user) {
+		userRepository.save(user);
 	}
 	
 	public String delete(String login, String password) {
-		String encryptedPassword = User.encryptPassword(password);
-		userRepository.deleteUserByLoginAndEncryptedPassword(login, encryptedPassword);
+		User user = (User) userRepository.findByLogin(login);
+		userRepository.delete(user);
 		return "User " + login + " deleted!";
 	}
 	
