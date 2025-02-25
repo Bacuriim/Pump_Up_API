@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Main-Class: org.pump.PumpUpApplication
+Class-Path: spring-data-jpa-3.0.4.jar swagger-models-jakarta-2.2.15.jar 
+ spring-security-crypto-6.0.2.jar spring-security-core-6.0.2.jar spring-
+ orm-6.0.7.jar spring-boot-starter-tomcat-3.0.5.jar spring-webmvc-6.0.7.
+ jar spring-boot-starter-web-3.0.5.jar jackson-datatype-jdk8-2.14.2.jar 
+ spring-beans-6.0.7.jar spring-boot-starter-validation-3.0.5.jar jakarta
+ .persistence-api-3.1.0.jar spring-jdbc-6.0.7.jar spring-aspects-6.0.7.j
+ ar jackson-module-parameter-names-2.14.2.jar jakarta.inject-api-2.0.0.j
+ ar spring-aop-6.0.7.jar hibernate-core-6.1.7.Final.jar spring-security-
+ config-6.0.2.jar spring-data-commons-3.0.4.jar checker-qual-3.5.0.jar s
+ pring-boot-autoconfigure-3.0.5.jar log4j-api-2.19.0.jar jaxb-runtime-3.
+ 0.2.jar java-jwt-4.4.0.jar spring-boot-3.0.5.jar log4j-to-slf4j-2.19.0.
+ jar swagger-core-jakarta-2.2.15.jar aspectjweaver-1.9.19.jar jakarta.tr
+ ansaction-api-2.0.0.jar jackson-databind-2.14.2.jar jackson-core-2.14.2
+ .jar spring-security-web-6.0.2.jar spring-context-6.0.7.jar byte-buddy-
+ 1.12.18.jar springdoc-openapi-starter-webmvc-ui-2.2.0.jar jakarta.activ
+ ation-api-2.1.0.jar jackson-annotations-2.14.2.jar spring-boot-starter-
+ jdbc-3.0.5.jar slf4j-api-2.0.2.jar spring-jcl-6.0.7.jar swagger-annotat
+ ions-jakarta-2.2.15.jar logback-classic-1.4.6.jar hibernate-validator-8
+ .0.0.Final.jar spring-boot-starter-security-3.0.5.jar spring-core-6.0.7
+ .jar spring-boot-starter-json-3.0.5.jar tomcat-embed-core-10.1.7.jar hi
+ bernate-commons-annotations-6.0.6.Final.jar spring-boot-starter-3.0.5.j
+ ar postgresql-42.5.0.jar snakeyaml-1.33.jar antlr4-runtime-4.10.1.jar j
+ boss-logging-3.4.3.Final.jar spring-tx-6.0.7.jar springdoc-openapi-star
+ ter-webmvc-api-2.2.0.jar jaxb-core-3.0.2.jar spring-boot-starter-data-j
+ pa-3.0.5.jar jakarta.xml.bind-api-4.0.0.jar jackson-dataformat-yaml-2.1
+ 5.1.jar jul-to-slf4j-2.0.7.jar classmate-1.5.1.jar logback-core-1.4.6.j
+ ar tomcat-embed-websocket-10.1.7.jar txw2-3.0.2.jar micrometer-commons-
+ 1.10.4.jar tomcat-embed-el-10.1.7.jar jakarta.validation-api-3.0.2.jar 
+ spring-boot-starter-aop-3.0.5.jar jakarta.annotation-api-2.1.1.jar ista
+ ck-commons-runtime-4.0.1.jar commons-lang3-3.12.0.jar micrometer-observ
+ ation-1.10.4.jar HikariCP-5.0.1.jar spring-expression-6.0.7.jar swagger
+ -ui-5.2.0.jar spring-boot-starter-logging-3.0.5.jar jandex-2.4.2.Final.
+ jar springdoc-openapi-starter-common-2.2.0.jar spring-web-6.0.7.jar jak
+ arta.activation-2.0.1.jar jackson-datatype-jsr310-2.14.2.jar
+
