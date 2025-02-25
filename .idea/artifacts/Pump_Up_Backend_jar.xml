@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact name="Pump_Up_Backend:jar">
+  <artifact type="jar" name="Pump_Up_Backend:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Pump_Up_Backend_jar</output-path>
-    <root id="root">
+    <root id="archive" name="Pump_Up_Backend_jar.jar">
       <element id="archive" name="Pump_Up_Backend.jar">
         <element id="module-output" name="Pump_Up_Backend" />
       </element>
