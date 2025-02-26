@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.pump.meter_reading.model.MeterReading;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -11,11 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Meter {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column(name = "name")
-	private String name;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private String id;
+
+	@Column(name = "meter_name", nullable = false, length = 50)
+	private String name;
 }
