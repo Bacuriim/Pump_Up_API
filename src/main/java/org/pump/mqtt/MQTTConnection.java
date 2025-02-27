@@ -9,7 +9,7 @@ import org.springframework.boot.json.GsonJsonParser;
 
 @Getter
 public class MQTTConnection {
-	private static final String BROKER_URL = "wss://broker.hivemq.com:8884";
+	private static final String BROKER_URL = "wss://test.mosquitto.org:8081";
 	private static final String CLIENT_ID = "java-mqtt-subscriber";
 	private static final String TOPIC = "meu/topico/json";
 
