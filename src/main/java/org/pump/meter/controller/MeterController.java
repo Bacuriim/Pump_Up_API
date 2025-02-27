@@ -34,6 +34,7 @@ public class MeterController {
 	@PostMapping("/new_meter/{name}")
 	@ResponseBody
 	public ResponseEntity<Meter> createMeter(@PathVariable String name) {
+		if (meterRepository.existsByName(name)) return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 		Meter meter = new Meter(UUID.randomUUID().toString(), name);
 		meterRepository.save(meter);
 		return ResponseEntity.ok().build();

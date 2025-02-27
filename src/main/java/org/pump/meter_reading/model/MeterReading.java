@@ -23,6 +23,9 @@ public class MeterReading {
 
 	@Column(name = "reading", nullable = false)
 	private Double reading;
+	
+	@Column(name = "water_presence", nullable = false)
+	private boolean waterPresence;
 
 	@Column(name = "timestamp", nullable = false, updatable = false)
 	private LocalDateTime timestamp = LocalDateTime.now();

@@ -48,7 +48,7 @@ public class MeterReadingController {
 		if (meterRepository.existsByName(name)) {
 			Meter meter = meterRepository.findMeterByName(name);
 			MeterReading meterReading = new MeterReading((long) (meterReadingRepository.findAllByMeterId(meter.getId()).size() + 1),
-					meter.getId(), reservoirCalc.fullnessPercentage(), LocalDateTime.now());
+					meter.getId(), reservoirCalc.fullnessPercentage(), reservoirCalc.getWaterPresence(), LocalDateTime.now());
 			meterReadingRepository.save(meterReading);
 			return ResponseEntity.ok("Meter Reading Created");
 		}
