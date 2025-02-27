@@ -35,7 +35,7 @@ public class SwaggerConfig {
 										.bearerFormat("JWT")))
 				.servers(List.of(
 						new Server().url("http://localhost:2000").description("Servidor Local"),
-						new Server().url("https://api.seudominio.com").description("Servidor de Produção")
+						new Server().url("https://pumpupapi-production.up.railway.app").description("Servidor de Produção")
 				));
 		
 			}
